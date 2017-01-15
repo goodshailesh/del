@@ -12,10 +12,9 @@ if [ "$2" == '' ]; then
 fi
 export SHA=$1
 export DOCKER_FARM_IP_ADDR=$2
-echo 'ssh soni@"$DOCKER_FARM_IP_ADDR"'
-ssh soni@"$DOCKER_FARM_IP_ADDR" -i ./id_rsa.pem << EOF
-mkdir job-workspace || true
-cd job-workspace
+ssh root@"$DOCKER_FARM_IP_ADDR" << EOF
+mkdir /home/soni/job-workspace || true
+cd /home/soni/job-workspace
 mkdir $SHA
 cd $SHA
 git init
@@ -25,4 +24,4 @@ git pull origin master
 git checkout $SHA > /dev/null 2>&1
 export IHOME_PATH=`pwd`
 echo $IHOME_PATH
-EOF >> log
+EOF
