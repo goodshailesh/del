@@ -23,4 +23,4 @@ git pull origin master
 git checkout $SHA
 export IHOME_PATH=`pwd`
 ./deploy-dev-env.sh $SHA $DOCKER_FARM_IP_ADDR
-EOF
+EOF | tee log
