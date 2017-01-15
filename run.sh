@@ -23,6 +23,6 @@ git remote add origin git@github.com:goodshailesh/nodejs-docker-local-dev-env
 git pull origin master
 git checkout $SHA
 export IHOME_PATH=`pwd`
-./deploy-dev-env.sh $SHA $DOCKER_FARM_IP_ADDR
-EOF )
+./deploy-dev-env.sh $SHA $DOCKER_FARM_IP_ADDR  > /dev/null 2>&1
+EOF  2>&1 )
 echo $RESULT > "$PWD/log"
