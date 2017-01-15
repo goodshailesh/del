@@ -18,10 +18,9 @@ cd /home/soni/job-workspace
 mkdir $SHA
 cd $SHA
 git init
-#git remote add origin git@github.com:goodshailesh/nodejs-docker-local-dev-env
-git remote add origin git@github.com:goodshailesh/del
+git remote add origin git@github.com:goodshailesh/nodejs-docker-local-dev-env
 git pull origin master
 git checkout $SHA
 export IHOME_PATH=`pwd`
-echo $IHOME_PATH
+./deploy-dev-env.sh $SHA $DOCKER_FARM_IP_ADDR
 EOF
