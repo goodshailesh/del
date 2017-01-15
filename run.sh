@@ -13,7 +13,7 @@ fi
 export SHA=$1
 export DOCKER_FARM_IP_ADDR=$2
 echo 'ssh soni@"$DOCKER_FARM_IP_ADDR"'
-ssh soni@"$DOCKER_FARM_IP_ADDR" -i /home/soni/pem-file-docker-farm/jenkins.pem << EOF
+ssh soni@"$DOCKER_FARM_IP_ADDR" -i ./id_rsa.pem << EOF
 mkdir job-workspace || true
 cd job-workspace
 mkdir $SHA
