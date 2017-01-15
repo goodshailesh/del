@@ -26,4 +26,4 @@ git checkout $SHA > /dev/null 2>&1
 export IHOME_PATH=`pwd`
 echo $IHOME_PATH
 
-EOF'
+EOF' >> log
