@@ -21,7 +21,7 @@ git init
 #git remote add origin git@github.com:goodshailesh/nodejs-docker-local-dev-env
 git remote add origin git@github.com:goodshailesh/del
 git pull origin master
-git checkout $SHA > /dev/null 2>&1
+git checkout $SHA
 export IHOME_PATH=`pwd`
 echo $IHOME_PATH
 EOF
