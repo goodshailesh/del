@@ -1,5 +1,5 @@
 #!/bin/sh
-exec 1> log 
+exec 1>/tmp/log
 if [ "$1" == '' ]; then
         echo "Commit SHA missing"
         echo "Usage: $0 [SHA] [IPADDR]"
