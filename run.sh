@@ -1,19 +1,19 @@
 #!/bin/sh
 
 if [ "$1" == '' ]; then
-	echo "Commit SHA missing"
+        echo "Commit SHA missing"
         echo "Usage: $0 [SHA] [IPADDR]"
-	exit
+        exit
 fi
 if [ "$2" == '' ]; then
-	echo "Docker-Farm IP Addr missing"
+        echo "Docker-Farm IP Addr missing"
         echo "Usage: $0 [SHA] [IPADDR]"
-	exit
+        exit
 fi
 export SHA=$1
 export DOCKER_FARM_IP_ADDR=$2
-runuser -l soni -c 'ssh soni@"$DOCKER_FARM_IP_ADDR" -i id_rsa.pem << EOF
-ssh soni@"$DOCKER_FARM_IP_ADDR" -i id_rsa.pem << EOF
+echo 'ssh soni@"$DOCKER_FARM_IP_ADDR"'
+ssh soni@"$DOCKER_FARM_IP_ADDR" -i /home/soni/pem-file-docker-farm/jenkins.pem << EOF
 mkdir job-workspace || true
 cd job-workspace
 mkdir $SHA
@@ -25,5 +25,4 @@ git pull origin master
 git checkout $SHA > /dev/null 2>&1
 export IHOME_PATH=`pwd`
 echo $IHOME_PATH
-
-EOF' >> log
+EOF >> log
