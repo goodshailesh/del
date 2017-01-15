@@ -1,0 +1,20 @@
+---
+- name: Configures a Local Dev Environmenmt
+  hosts: farm
+  remote_user: soni
+  tasks:
+  - block:
+    - name: Creating a sample network
+      docker_network: name=inet state=present
+    - name: Creating a container
+      docker_container:
+       name: lightweight
+       image: alpine
+       networks:
+       - name : "inet"
+       command: /bin/sh
+       state: present
+       interactive: true
+    become: true
+...
+
